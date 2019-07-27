@@ -16,10 +16,14 @@
     },
     components: {
       Footer
+    },
+    mounted () {
+      this.$store.dispatch('getHomeData')
     }
   }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus" scoped>
-
+  #app
+    height 100%
 </style>

@@ -12,7 +12,7 @@
       </span>
       <span>分类</span>
     </span>
-    <span class="guide_item" :class="{on: $route.path==='/things/find'}" @click="goTo('/things/find')">
+    <span class="guide_item" :class="{on: $route.path==='/things/find'||$route.path==='/things/zhenjia'}" @click="goTo('/things/find')">
       <span class="item_icon">
         <i class="iconfont icon-wuping"></i>
       </span>
@@ -24,7 +24,7 @@
       </span>
       <span>购物车</span>
     </span>
-    <span class="guide_item" :class="{on: $route.path==='/profile'}" @click="goTo('/profile')">
+    <span class="guide_item" :class="{on: $route.path==='/profile'}" @click="goTo(userInfo ? 'profile' : 'login')">
       <span class="item_icon">
         <i class="iconfont icon-geren"></i>
       </span>
@@ -34,6 +34,7 @@
 </template>
 
 <script type="text/ecmascript-6">
+import {mapState} from 'vuex'
   export default {
     name: 'Footer',
     methods: {
@@ -41,6 +42,9 @@
         // 编程式路由导航
         this.$router.replace(path)
       }
+    },
+    computed: {
+      ...mapState(['userInfo']),
     }
   }
 </script>
